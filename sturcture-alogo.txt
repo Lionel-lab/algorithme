@@ -1,0 +1,20 @@
+boissons=[coca,café,eau,sprite]
+a=0
+b=1
+c=2
+d=3
+
+prix_total=1
+compteur=0;
+pièce=0;
+choisir une boisson : a
+mettre pièce
+	si pièce<prix_total alors
+	compteur=piece
+	 	afficher piece
+	tant que compteur<prix_totale
+		ajouter une pièce
+	compteur=compteur+1
+		Afficher compteur
+	si pièce>=prix_totale alors
+		donner boisson

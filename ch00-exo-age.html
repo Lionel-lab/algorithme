@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test javascript</title>
+</head>
+<body>
+	<style>
+		body{
+			font:16px sans-serif;
+		}
+		h1,h2,h3{
+			font-weight: 100;
+			text-align: center;
+		}
+		p{
+			width: 400px;
+			margin:0 auto;
+			padding:15px;
+			color:#fff;
+			background: #099CD7;
+			text-align: center;
+			display: none;
+		}
+		.appear{
+			display: block;
+		}
+	</style>
+	<h1>Javascript</h1>
+	<p></p>
+		<script>
+		var titre="Javascript";
+		document.title=titre;
+
+		var cible=document.querySelector('p');
+			var age=prompt(String("Votre age svp"));
+				if(!age || isNaN(age) || age===undefined){
+					alert("Remplir le champ ou siaissez un chiffre");
+					document.location.reload(true);
+				}
+				else if(age<18){
+					alert("Désole pas de permission");
+					document.location.reload(true);
+				}
+				else{
+					//alert("vous pouvez entrer");
+					cible.classList.add('appear');
+					cible.textContent=age+" ans";
+
+				}
+			//d'autres variable
+			var nom=prompt(String("Votre nom svp?",""));
+				if(!nom || !isNaN(nom)){
+					alert("Remplir le champ ou siaissez un chiffre");
+					document.location.reload(true);
+				}
+				else{
+					//alert("vous pouvez entrer");
+					cible.classList.add('appear');
+					cible.innerHTML="votre nom est : "+nom+ "<br>vous avez : "+age+" ans";
+
+				}
+			myTable=[];
+			myTable.push(age,nom);
+			console.log(myTable);
+		</script>
+	
+</body>
+</html>

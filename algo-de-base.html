@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>algo</title>
+	<style>
+		body{
+			font: 16px sans-serif;
+		}
+		.addColor{
+			color:#999;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="header">Les algos?</h1>
+	<p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam ex est expedita minima unde sint, delectus, nam totam adipisci cupiditate magnam numquam vero beatae natus atque rerum explicabo veritatis vel.</p>
+	<p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam ex est expedita minima unde sint, delectus, nam totam adipisci cupiditate magnam numquam vero beatae natus atque rerum explicabo veritatis vel.</p>
+	<script type="text/javascript">
+	
+	var x=document.querySelectorAll("p,h1");//groupe de séléctors traités en list
+		//x.classList.add('addColor');
+		console.log(x.length);
+		
+		for(let i=0; i<x.length; i++){
+			x[i].classList.add("addColor");
+		}
+		//console.log(document.body.childNodes[1]);
+		for(let i=0; i<document.body.childNodes.length; i++){
+			console.log(document.body.childNodes[i]);
+		}
+	var titre=document.querySelector('h1');
+			titre.length;
+		
+	/*algo numéro*/
+		let n=Number(0);
+		console.log("Résultat : "+n);
+		
+		console.log("Résultat : "+(n*n+1));
+		
+		n=n*n+1;
+			console.log("Valeur de n : "+n);
+		
+		//suite algo avec itération
+		let i,s=10;
+		for(i=0; i<s; i++){
+			
+				console.log("itération de "+i);	
+
+		}
+		console.log("Valeur de S : "+s);
+		
+		//suite algo réaffectation de variable
+		let a=2,b=5,t;
+			a+=b;
+			console.log(a);
+			a=a%2;
+			console.log(a);
+
+		//fonction
+		var nombre=Number(1);
+		
+		 function calcX(msg){
+		 	var x=String('Hello');
+		 	return console.log(msg+x  );
+		 }
+			calcX("Le resultat est ");
+			
+			console.log(nombre);
+		
+		function user(nom,prenom){
+			return console.log("Bonjour : "+nom+" "+prenom);
+		}
+		user("Mili","Gius");
+		
+
+
+		//objet
+
+		var user=function(nom,prenom,ville){
+			this.nom=nom;
+			this.prenom=prenom;
+			this.ville=ville;
+		}
+		var auteur=new user("Militello","Giuseppe","Paris");
+		console.log(auteur.nom+", "+auteur.prenom+", "+auteur.ville);
+		console.log(typeof(auteur));//type objet
+		
+
+		(function(){
+			let x=Number(0),y=Number(0);
+			console.log(x);
+			y=3*2-x+1;
+			console.log("valeur de y="+y);
+
+		})();
+		myTab=["a","b","c"];
+
+		for(let i of myTab){//nouvelle forme
+			console.log(i);
+		}
+
+		let px=16;
+		let cal=px*62.5;
+		console.log("Resulat : "+parseFloat(cal));
+		
+		let larg=1200;
+		let form=200*100/larg;
+		console.log(form);
+
+		//tableau objet
+		let internaute={//l'objet
+			nom:"Mili",
+			prenom:"Gius",
+			ville:"Paris"
+		};
+
+		console.log(internaute.nom+" : type "+typeof(internaute));
+
+		arr=[2001,2002,2003];
+
+		i=0;
+		while(i<arr.length){
+			console.log(arr[i]);
+			++i;
+		}
+
+	//condition ternaire 
+	var premierControle = false,
+    secondControle = false,
+    acces = premierControle ? "Accès refusé" : secondControle ? "Accès refusé" : "Accès autorisé";
+  
+	console.log(acces); // "Accès autorisé"
+
+	var note_1=0;
+	var note_2=10
+	
+	print= note_2 ? "tu as la moyenne" : note_2 ? "Tu n'as pas la moyenne" : "pas de note";
+	console.log(print);
+	//selector all
+	 //document.querySelectorAll("div.note, div.alert");
+	
+	</script>
+</body>
+</html>

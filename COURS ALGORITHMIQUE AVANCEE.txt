@@ -1,0 +1,285 @@
+COURS ALGORITHMIQUE AVANCEE
+===========================
+
+
+VOCABULAIRE :
+un ordinateur = un objet, des ressources matérielles (le hardware).
+• un algorithme = une recette, une méthode pour obtenir un résultat.
+• un programme = un algorithme écrit dans un langage de programmation.
+• un problème algorithmique = un problème à résoudre.
+
+Quelques exemples :
+- plan de montage ikea : http://www.ikea.com/assembly_instructions/billy-bookcase--202-cm__JXQ13_PUB.PDF
+- une recette de boeuf bourguignon : http://www.marmiton.org/recettes/recette_boeuf-bourguignon-a-ma-facon_14895.aspx
+- affichage des températures 0 à 19 ° celsius en Fahrenheit : http://larp.marcolavoie.ca/fr/DocHTM/143.gif
+
+Définition :
+wikipedia : Un algorithme est une suite finie et non ambiguë d’opérations ou d'instructions permettant de résoudre un problème ou d'obtenir un résultat.
+Autre : un algorithme est la description univoque d'une méthode effective pour résoudre un problème, exprimée à l'aide d'une suite d'instructions élémentaires.
+
+Enjeux : Les algorithmes sont omniprésents (et omniscients ?) dans notre société : google, facebook, amazon, banques, assurances, big data,...
+Classement de l'information, personnalisation publicitaire, recommandation de produits, ciblage des comportements, orientation des déplacements.
+Ce ne sont plus de simples outils techniques : ils véhiculent un projet "politique".
+
+choix python https://perso.limsi.fr/pointal/_media/python:cours:mementopython3.pdf
+
+Quelques problèmes algorithmiques : 
+- la somme des nombres de 1 à n
+- trier alphabetiquement une liste de mots
+- trouver une liste de pages web contenant une liste de mots
+- le plus court chemin de A à B (le plus long ?)
+=> un algorithme doit résoudre toutes les instances d'un problème
+
+Exemple : recherche du minimum dans une liste (non vide) :
+1- noter le premier entier de la liste
+2- pour tous les entiers suivants ,faire :
+si l'entier est inférieur à celui noté
+alors remplacer celui-ci par le nouvel entier
+3- renvoyer le nombre noté
+
+En pseudo-code :
+recherche du minimum :
+Données : liste non vide d'entiers L
+Résultat : entier m le plus petit de L
+
+m <- L(1)
+pour chaque i allant de 2 à |L| faire
+	si L(i) < m alors m <- L(i)
+retourner m
+
+en python :
+liste = [5,8,3,2,6,10]
+m = liste[0]
+for i in range(1,len(liste)):
+	if liste[i] < m:
+		m = liste[i]
+print(m)
+
+Des instances possibles : [1,2,5,5,25,4,11], [11], ([] ?)
+
+Pour un problème donné, il peut y avoir plusieurs algorithmes différents ou aucun.
+Si plusieurs, il faut pouvoir les comparer selon différents critères :
+- récursif, itératif, etc
+- les structures de données utlisées
+!- la complexité ! ressources  temps et mémoire)
+
+Complexité d'un algorithme :
+en temps ou en espace mémoire
+Objectif : trouver un ordre de grandeur du nombre d'opérations élémentaire nécessaires à l'exécution de l'algorithme
+=> une notion robuste, indépendante de l'env (ordi, compilateur,etc) exprimée en fonction de la taille de la donnée à traiter.
+Par exemple pour la recherche du minimum n-1 comparaisons sont faites.
+Notion de coût : complexité dans le pire des cas, complexité en moyenne
+Famille d'algorithme selon leur complexité : notation grand O (O de Landau)
+notation		grandeur au plus
+O(1)			module majoré par une constante
+O(log(n))		logarithmique
+O((log(n))c)	(polylogarithmique si c est entier positif)
+O(n)			linéaire
+O(n log(n))		parfois appelée « linéarithmique », ou « quasi-linéaire »
+O(n2)			quadratique
+O(nc)			(polynomiale si c est entier positif)
+O(cn)			(exponentielle si c est positif, parfois « géométrique »)
+O(n!)			factorielle
+
+Recherche du bon algorithme :
+corrects : ils calculent bien
+efficaces : nécessitant des ressources (temps et mémoires) raisonnables
+
+exemple d'algorithme très efficace :
+recherche dichotomique : pour 1 millions de noms, la recherche ne prend que 20 comparaisons au max
+Exercice : L'écrire en pseudo-code puis en python
+voir feuille recherche dichotomique pour le pseudo-code
+voir : http://www.xavierdupre.fr/blog/2013-12-01_nojs.html
+
+STRUCTURES DE CONTRÔLE ET DE DONNÉES SIMPLES (IF, ELSE, TABLEAU, ...)
+- stocker des données : variables (zone mémoire avec un identificateur)
+x := exp, x <- exp, exp -> x, X = exp
+- instruction conditionnelle
+Si c Alors
+Si c Alors ... Sinon ...
+- Entrées/Sorties
+Afficher exp
+Lire(v)
+- Boucles
+Pour chaque x dans S Faire:
+Pour i = 1 à 100 Faire: ...
+
+Tant que C faire
+Répéter ... jusqu'à C
+
+Les fonctions
+nom + parametres (+ leurs types) + type de résultat
+RechercherMin(T : tableau d'entiers) : entier
+
+
+Tableaux / Listes
+Les Piles (LIFO) ( 1 2 3 + -- NPI)
+Les Files (FIFO)
+
+
+Exercices : 
+- recherche minimum
+- somme des 100 premiers nombres : 
+  algo puis calcul direct avec Gauss :
+  1 10 = 11
+  2 9  = 11
+  3 8  ...
+  4 7  ...
+  5 6  ...
+  ---
+  6 5
+  7 4
+  8 3
+  9 2
+  1 10
+
+- anagramme : 
+-- trouver les anagrammes d'une phrase donnée
+-- trouver les anagrammes du dictionnaire (http://www.pallier.org/ressources/dicofr/dicofr.html)
+
+- palindrome
+-- vérifier si un mot est un palindrome
+-- trouver tous les palindromes du dictionnaire
+
+- pgcd
+1) Voici un algorithme, dû à Euclide, qui détermine le PGCD de 2 nombres naturels a et b.
+  si un des nombres est nul, l'autre est le PGCD
+  sinon il faut soustraire le plus petit du plus grand
+     et laisser le plus petit inchangé.
+  Puis, recommencer ainsi avec la nouvelle paire jusqu'à ce que un des deux
+  nombres soit nul. Dans ce cas, l'autre nombre est le PGCD.
+    Exemple: si a vaut 32 et b vaut 14, on obtient successivement
+	32              14
+	32-14=18	14
+	14	        4=18-14
+	14-4=10	        4
+	10-4=6	        4
+	6-4=2	        4
+	4-2=2	        2
+	2	        2-2=0
+
+- prime nomnbre premier
+int premier (long n) {
+  long d; 
+  if (n % 2 == 0)
+    return (n == 2);
+  for (d = 3; d * d <= n; d = d + 2)
+    if (n % d == 0)
+      return 0;
+  return 1;
+}
+
+- tri (selection, insertion, bulle, quicksort,...)
+
+https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection#/media/File:Selection-Sort-Animation.gif
+procédure tri_selection(tableau t, entier n)
+  pour i de 1 à n - 1
+      min ← i
+      pour j de i + 1 à n
+          si t[j] < t[min], alors min ← j
+      fin pour
+      si min ≠ i, alors échanger t[i] et t[min]
+  fin pour
+fin procédure
+
+https://fr.wikipedia.org/wiki/Tri_par_insertion#/media/File:Insertion-sort-example-300px.gif
+procédure tri_insertion(tableau T, entier n)
+      pour i de 1 à n
+          x ← T[i]
+          j ← i
+          tant que j > 0 et T[j - 1] > x
+              T[j] ← T[j - 1]
+              j ← j - 1
+          fin tant que
+          T[j] ← x
+     fin pour
+  fin procédure
+
+tri_à_bulles(Tableau T)
+pour i allant de taille de T - 1 à 1
+   pour j allant de 0 à i - 1
+       si T[j+1] < T[j]
+           échanger(T[j+1], T[j])
+
+- calculatrice NPI
+
+http://www.dcode.fr/liste-outils#cryptography
+- chiffre de César
+Pour N allant de 1 à Longueur du Texte Faire
+Prendre C = Nième caractère du Texte
+Calculer le rang R de C dans l'alphabet
+Calculer R2 = ( R + Décalage ) Modulo 26href
+Ecrire la lettre de rang R2 dans l'alphabet
+Fin Boucle Pour
+
+- chiffre de Vigenère
+http://www.dcode.fr/chiffre-vigenere
+
+(minimax, alpha-beta)
+Taquin - regles de production, arbre de recherche, état
+un état correspond à une configuration particulière du taquin 3x3
+4 opérations possibles : G,D,H,B
+ranger 8 pavés coulissants numérotés de 1 à 8 en utilisant une case vide
+la résolution consiste partir de l'état initial, appliquer les regles de production sur les états intermédiaires selon le mécanisme de contrôle choisi afin d'atteindre l'état final.
+stratégies de recherche systématique : en-profondeur et en-largeur
+
+1- en-profondeur d'abord (in-depth first)
+Utilisation d'une pile (LIFO)
+algorithme : 
+on part d'un état initial et on génère ses successeurs.
+on prend ensuite un des successeurs et on vérifie si celui-ci correspond à l'état final
+si oui on s'arrête sinon on génère ses successeurs
+s'il n'a pas de successeurs, on passe au successeur suivant et ainsi de suite jusqu'à la résolution ou que l'on a généré tous les états
+Le résultat sera le chemin qui relie l'état initial à l'état final.
+Eviter les cas cycliques (génération de successeurs d'un noeud déjà visité) 
+
+On va définir une fonction :
+en_profondeur(pile, etat_final, chemin) pile est initialisée à l'état initial, le chemin à nil
+- si pile est vide alors echec (solution non trouvée)
+- dépiler pile et affecter la valeur dépilée à sommet
+- si sommet existe dans le chemin alors appeler
+  en_profondeur(pile, etat_final, chemin)
+- insérer sommet dans chemin
+- si sommet = etat_final alors retourner chemin
+- autrement, empiler les successeurs de sommet et appeler en_profondeur(pile, etat_final, chemin)
+
+Il faut une fonction pour générer les successeurs (genere_succ(etat))
+
+def en_profondeur(pile, etat_final, chemin):
+	if len(pile) == 0:
+		return []
+	elif pile[0] == etat_final:
+		chemin.append(etat_final)
+	elif pile[0] in chemin:
+		en_profondeur(pile[1:], etat_final, chemin)
+	else:
+		en_profondeur( 
+			genere_succ(pile[0]).append(pile[1:]),
+			etat_final,
+			chemin.append(pile[0])
+		)
+def genere_succ(etat):
+	# à coder...
+
+etat = [1,2,3,
+		4,0,6,
+		7,8,5]
+
+=> 1,0,3  1,2,3
+   4,2,6  0,4,6
+   7,8,5  7,8,5 etc
+
+1,2,3,4,0,5,6,7,8
+  *   *   *   *
+
+0,1,2,3,4,5,6,7,8
+  *   *
+
+1,0,2,3,4,5,6,7,8
+*   *   *
+-1  1   3
+
+algo :
+je cherche l'index du 0 (etat.index(0))
+on swap pour index -3 -1 +1 +3  ; si index <= len(etat) && index >= 0
+
