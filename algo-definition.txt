@@ -1,0 +1,2 @@
+Définition : Un algorithme est une suite finie d’opérations élémentaires, à appliquer dans un ordre déterminé, à des données. 
+Sa réalisation permet de résoudre un problème donné.
